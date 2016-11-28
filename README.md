@@ -19,7 +19,6 @@ Build a map-based application, which lets the user see geo-based data on a map a
 
 ## My project
 
-Fill in (either in English, or in Slovak):
 # BikeParkingLocator
 **Application description**:
 
