@@ -35,5 +35,6 @@ Aplikácia je riešená spôsobom klient server. Časti navzájom komunikujú po
 
 **Data source**: 
 - [Open Street Maps](https://www.openstreetmap.org/)
+
 **Technologies used**:
 Mapbox, Postgresql, PostGis, OpenStreetMap, HTML, Javascript, CSS, Node.js
