@@ -37,3 +37,6 @@ Aplikácia je riešená spôsobom klient server. Časti navzájom komunikujú po
 
 **Technologies used**:
 - Mapbox, Postgresql, PostGis, OpenStreetMap, HTML, Javascript, CSS, Node.js
+
+**Screenshot**: 
+![Alt text](https://raw.githubusercontent.com/mathis92/BikeParkingLocator/master/screenShot.png)
