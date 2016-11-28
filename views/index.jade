@@ -1,0 +1,120 @@
+extends layout
+
+block content
+    header.navbar.navbar-static-top
+        nav.navbar.navbar-default
+            .container-fluid
+                // Brand and toggle get grouped for better mobile display
+                .navbar-header
+                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.navbar-brand(href='/') BikeParkingLocator
+                // Collect the nav links, forms, and other content for toggling
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                    ul.nav.navbar-nav
+                        li#currentPosition.active(title="Show current position")
+                            a(class='button' onclick='recenterMap()' title="Show current position")
+                                span.material-icons.my_location my_location
+                        li#bikeParkingsButton(title="Bike parkings")
+                            a(class='button' onclick='getBikeParkings()')
+                                span.material-icons.local_parking local_parking
+                        li#cycloWaysButton( title="Cycloways")
+                            a( class='button' onclick='getCycloWays()')
+                                span.material-icons.directions_bike directions_bike
+                        li#restaurantsButton( title="Bike accessible restaurants")
+                            a( class='button' onclick='getBikeAccessibleRestaurants()')
+                                span.material-icons.restaurant_menu restaurant_menu
+                        li#sightsButton( title="Bike accessible tourist sights")
+                            a( class='button' onclick='getTouristSights()')
+                                span.material-icons.account_balance account_balance
+                        li#parksButton( title='Bike accessible parks')
+                            a( class='button' onclick='getRecreationAreas()')
+                                span.material-icons.nature nature
+                    form#inputCityForm.navbar-form.navbar-left
+                        .form-group
+                            input#inputCity.form-control(type='text', placeholder='Insert desired city')
+                            button#inputButton.btn.btn-default(type="button" onclick="displayCity()") Search
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a(id="currentRange") Curent range 2 km
+                        li.dropdown
+                            a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                                | Range
+                                span.caret
+                            ul.dropdown-menu
+                                li
+                                    a(class='button' onclick='setRange(2000)') 2 km
+                                li
+                                    a(class='button' onclick='setRange(5000)') 5 km
+                                li
+                                    a(class='button' onclick='setRange(10000)') 10 km
+    main
+        #map
+            script(src="/javascripts/map.js")
+        #myModal.modal.fade(tabindex='-1', role='dialog')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') ×
+                        h4.modal-title Current Location
+                    .modal-body
+
+                        p Latitude:
+                        #latitude(type='text', name='latitude')
+                        br
+                        p Longitude:
+                        #longitude(type='text', name='longitude')
+                    .modal-footer
+                        button.btn.btn-default(type='button', data-dismiss='modal') Close
+                // /.modal-content
+            // /.modal-dialog
+        // /.modal\
+        #cityNotExists.modal.fade(tabindex='-1', role='dialog')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') ×
+                        h4.modal-title Town does not exist
+                    .modal-body
+
+                        p Requested town
+                        #town(type='text', name='town')
+                    .modal-footer
+                        button.btn.btn-default(type='button', data-dismiss='modal') Close
+                // /.modal-content
+            // /.modal-dialog
+        // /.modal
+        #marker.modal.fade(tabindex='-1', role='dialog')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') ×
+                        h4#title.modal-title Restaurant
+                    .modal-body
+
+                        p Name
+                        #name(type='text', name='town')
+                        p Latitude:
+                        #latitudeMarker(type='text', name='latitude')
+                        br
+                        p Longitude:
+                        #longitudeMarker(type='text', name='longitude')
+                    .modal-footer
+                        button.btn.btn-default(type='button', data-dismiss='modal') Close
+        #notInRange.modal.fade(tabindex='-1', role='dialog')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') ×
+                        h4#titleNotInRange.modal-title
+                    .modal-body
+                        #textNotInRange(type='text', name='town')
+                    .modal-footer
+                        button.btn.btn-default(type='button', data-dismiss='modal') Close

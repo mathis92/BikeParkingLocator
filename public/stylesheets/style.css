@@ -1,0 +1,103 @@
+@import url('http://getbootstrap.com/dist/css/bootstrap.css');
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.button {
+  cursor: pointer;
+  color: #00f;
+  text-decoration: underline;
+}
+
+.my_location:hover{
+  color: #00B7FF;
+}
+
+.local_parking:hover{
+  color: #2b669a;
+}
+.directions_bike:hover{
+  color: #eea236;
+}
+.restaurant_menu:hover{
+  color: #b92c28;
+}
+.account_balance:hover{
+  color: chocolate;
+}
+.nature:hover{
+  color: green;
+}
+
+.markerBike {
+  display: block;
+  border: outset;
+  border-color: #00B7FF;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  height: auto;
+  width: auto;
+  background-image: url('/images/bike.png');
+  background-size: contain;
+}
+
+.bicycleParkingMarker {
+  display: block;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  height: auto;
+  width: auto;
+  background-image: url('/images/bicycle_parking_02.svg');
+  background-size: contain;
+}
+
+.historicMarker {
+  display: block;
+  cursor: pointer;
+  padding: 0;
+  height: auto;
+  width: auto;
+  background-image: url('/images/historic.png');
+  background-size: contain;
+}
+
+.restaurantMarker {
+  display: block;
+  cursor: pointer;
+  padding: 0;
+  height: auto;
+  width: auto;
+  background-image: url('/images/restaurant.png');
+  background-size: contain;
+}
+
+body {
+  background: none repeat scroll 0 0 white;
+}
+
+
+.icon:hover:after {
+  content: "Your tooltip";
+  display: block;
+  position: relative;
+  top: -16px;
+  right: -16px;
+  width: 100px;
+  background: lightblue;
+}
